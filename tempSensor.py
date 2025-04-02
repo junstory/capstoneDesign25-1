@@ -1,10 +1,6 @@
 import os
-import RPi_I2C_driver
 import time
  
-mylcd = RPi_I2C_driver.lcd()
-
-
 # ds18b20 온도데이터값을 아래 temp_sensor 경로에 저장하기 위한 명령어
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -38,13 +34,5 @@ def read_temp():
  
 while True:
     print(read_temp())
-    
-    now = time.localtime()
-    current_time = time.strftime("%H:%M:%S", now)
-
-    mylcd.lcd_display_string("Current Time: " + current_time, 1)
-    mylcd.lcd_display_string("Temp: %.3f C" % read_temp()[0], 2)
-    mylcd.lcd_display_string("Temp: %.3f F" % read_temp()[1], 3)
     time.sleep(1)
-    mylcd.lcd_clear()
 
