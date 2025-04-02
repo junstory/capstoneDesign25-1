@@ -6,7 +6,7 @@ os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
  
 # 라즈베리파이가 센서데이터를 받는 경로를 설정
-temp_sensor='/sys/bus/w1/devices/28-0416935fd1ff/w1_slave'
+temp_sensor='/sys/bus/w1/devices/28-0000003860f9/w1_slave'
  
 # 파일의 내용을 읽어오는 함수
 def temp_raw():
