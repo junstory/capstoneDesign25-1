@@ -1,7 +1,16 @@
 import os
 import RPi_I2C_driver
 import time
- 
+import board
+import busio
+import adafruit_ads1x15.ads1115 as ADS
+from adafruit_ads1x15.analog_in import AnalogIn
+
+#전압 측정 모듈 연결 및 초기화
+i2c = busio.I2C(board.SCL, board.SDA)
+ads = ADS.ADS1115(i2c)
+
+#LCD 모듈 초기화
 mylcd = RPi_I2C_driver.lcd()
 
 
@@ -9,9 +18,14 @@ mylcd = RPi_I2C_driver.lcd()
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
  
-# 라즈베리파이가 센서데이터를 받는 경로를 설정
+# 라즈베리파이가 센서데이터를 받는 경로를 설정(경로는 라즈베리마다 다름))
 temp_sensor='/sys/bus/w1/devices/28-0000003860f9/w1_slave'
  
+def getVoltage():
+    chan = AnalogIn(ads, ADS.P0)
+    voltage = chan.voltage
+    return voltage
+
 # 파일의 내용을 읽어오는 함수
 def temp_raw():
     f = open(temp_sensor,'r')
