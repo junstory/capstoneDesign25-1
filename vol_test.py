@@ -17,10 +17,10 @@ print("ina219 test")
 
 # display some of the advanced field (just to test)
 # 전압, 전류, 전력, 샤프트 전압 출력
-print("Bus Voltage: %.3f V" % ina.voltage())  # 배터리 전압
-print("Bus Current: %.3f mA" % ina.current())  # 전류
-print("Power: %.3f mW" % ina.power())  # 전력
-print("Shunt voltage: %.3f mV" % ina.shunt_voltage())  # 샤프트 전압
+print("Bus Voltage: %.3f V" % ina219.voltage())  # 배터리 전압
+print("Bus Current: %.3f mA" % ina219.current())  # 전류
+print("Power: %.3f mW" % ina219.power())  # 전력
+print("Shunt voltage: %.3f mV" % ina219.shunt_voltage())  # 샤프트 전압
 
 # optional : change configuration to use 32 samples averaging for both bus voltage and shunt voltage
 ina219.bus_adc_resolution = ADCResolution.ADCRES_12BIT_32S
