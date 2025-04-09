@@ -9,6 +9,7 @@ print("found device info")
 for i in range(len(nearby_devices)):
     print(bluetooth.lookup_name(nearby_devices[i]), nearby_devices[i])
 print("found device info end")
+
 for bdaddr in nearby_devices:
     if target_name == bluetooth.lookup_name( bdaddr ):
         target_address = bdaddr
