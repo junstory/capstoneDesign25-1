@@ -16,13 +16,11 @@ ina219 = INA219(i2c_bus)
 print("ina219 test")
 
 # display some of the advanced field (just to test)
-print("Config register:")
-print("  bus_voltage_range:    0x%1X" % ina219.bus_voltage_range)
-print("  gain:                 0x%1X" % ina219.gain)
-print("  bus_adc_resolution:   0x%1X" % ina219.bus_adc_resolution)
-print("  shunt_adc_resolution: 0x%1X" % ina219.shunt_adc_resolution)
-print("  mode:                 0x%1X" % ina219.mode)
-print("")
+# 전압, 전류, 전력, 샤프트 전압 출력
+print("Bus Voltage: %.3f V" % ina.voltage())  # 배터리 전압
+print("Bus Current: %.3f mA" % ina.current())  # 전류
+print("Power: %.3f mW" % ina.power())  # 전력
+print("Shunt voltage: %.3f mV" % ina.shunt_voltage())  # 샤프트 전압
 
 # optional : change configuration to use 32 samples averaging for both bus voltage and shunt voltage
 ina219.bus_adc_resolution = ADCResolution.ADCRES_12BIT_32S

@@ -8,7 +8,7 @@ MAX_EXPECTED_AMPS = 2.0  # 예상 최대 전류 (배터리의 최대 전류에 �
 
 def read():
     # INA219 센서 초기화
-    ina = INA219(SHUNT_OHMS, MAX_EXPECTED_AMPS, address=0x40)
+    ina = INA219(0x40, MAX_EXPECTED_AMPS, SHUNT_OHMS)
     
     # 16V 범위로 설정 (배터리 전압을 고려한 범위)
     ina.configure(ina.RANGE_16V)
