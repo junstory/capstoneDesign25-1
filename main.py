@@ -107,10 +107,10 @@ def getBatteryStatus():
     # print("Voltage (VIN-) : {:6.3f}   V".format(bus_voltage))
     # print("Shunt Voltage  : {:8.5f} V".format(shunt_voltage))
     # print("Shunt Current  : {:7.4f}  A".format(current / 1000))
-    # print("Power Calc.    : {:8.5f} W".format(bus_voltage * (current / 1000)))
+    print("Power Calc.    : {:8.5f} W".format(bus_voltage * (current / 1000)))
     # print("Power Register : {:6.3f}   W".format(power))
-    # print("ocv_voltage    : {:6.3f}   V".format(ocv_voltage))
-    # print("SOC           : {:3d} %".format(soc))
+    print("ocv_voltage    : {:6.3f}   V".format(ocv_voltage))
+    print("SOC           : {:3d} %".format(soc))
     # print("")
 
     # Check internal calculations haven't overflowed (doesn't detect ADC overflows)
@@ -133,10 +133,10 @@ while True:
     now = time.localtime()
     current_time = time.strftime("%H:%M:%S", now)
 
-    mylcd.lcd_display_string("Current Time: " + current_time, 1)
-    mylcd.lcd_display_string("Temp: %.3f C" % read_temp()[0], 2)
-    mylcd.lcd_display_string(f"vol: {vol:.3f}v curr: {curr:.3f}", 3)
-    mylcd.lcd_display_string(f"Soc: {soc:3d}%", 4)
+    mylcd.lcd_display_string(f"Time: {current_time} Soc: {soc:3d}%", 1)
+    mylcd.lcd_display_string(f"Temp: {read_temp()[0]:.3f} C", 2)
+    mylcd.lcd_display_string(f"vol: {vol:.3f}v ", 3)
+    mylcd.lcd_display_string(f"curr: {curr:.3f}", 4)
     time.sleep(1)
     mylcd.lcd_clear()
 
