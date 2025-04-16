@@ -7,10 +7,6 @@ import board
 from adafruit_ina219 import ADCResolution, BusVoltageRange, INA219
 
 
-#전압 측정 모듈 연결 및 초기화
-i2c = busio.I2C(board.SCL, board.SDA)
-ads = ADS.ADS1115(i2c)
-
 #LCD 모듈 초기화
 mylcd = RPi_I2C_driver.lcd()
 
