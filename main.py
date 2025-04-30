@@ -6,15 +6,13 @@ import time
 import board
 from adafruit_ina219 import ADCResolution, BusVoltageRange, INA219
 
-
 #LCD 모듈 초기화
 mylcd = RPi_I2C_driver.lcd()
-
 
 # ds18b20 온도데이터값을 아래 temp_sensor 경로에 저장하기 위한 명령어
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
- 
+
 # 라즈베리파이가 센서데이터를 받는 경로를 설정(경로는 라즈베리마다 다름))
 temp_sensor='/sys/bus/w1/devices/28-0000003860f9/w1_slave'
 
