@@ -9,8 +9,8 @@ i2c = busio.I2C(board.SCL, board.SDA)
 ads = ADS.ADS1115(i2c)
 if __name__ == "__main__":
     while True:
-        chan0 = AnalogIn(ads, ADS.P0)
-        chan1 = AnalogIn(ads, ADS.P1)
+        chan0 = AnalogIn(ads, ADS.P0, ADS.P1)
+        chan1 = AnalogIn(ads, ADS.P2, ADS.P3)
         print("Channel 0: {}V".format(chan0.voltage))
         print("Channel 1: {}V".format(chan1.voltage))
         time.sleep(1)
