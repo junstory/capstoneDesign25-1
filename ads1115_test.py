@@ -7,7 +7,7 @@ import time
 i2c = busio.I2C(board.SCL, board.SDA)
 
 ads = ADS.ADS1115(i2c)
-if _name__ == "__main__":
+if __name__ == "__main__":
     while True:
         chan = AnalogIn(ads, ADS.P0)
         print(chan.value, chan.voltage)
